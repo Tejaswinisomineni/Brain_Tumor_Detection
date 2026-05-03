@@ -1,0 +1,20 @@
+# Ignore large model weights (GitHub limit is 100MB)
+*.pt
+*.pth
+
+# Ignore datasets and data caches
+/brain/
+/Brain Tumor Data Set/
+__pycache__/
+
+# Ignore Git portables
+/mingit/
+mingit.zip
+
+# Ignore IDE files
+.vscode/
+
+# Ignore test images
+test_data*.jpg
+test_data*.jpeg
+test_data*.png

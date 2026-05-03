@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroScan AI — Brain Tumor Detection</title>
+    <meta name="description" content="AI-powered brain tumor detection using CNN+LSTM hybrid deep learning.">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+
+<body>
+    <div class="bg-animation">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon"><svg viewBox="0 0 40 40" fill="none">
+                        <circle cx="20" cy="20" r="18" stroke="url(#grad)" stroke-width="2.5" />
+                        <path d="M14 20C14 16.7 16.7 14 20 14C23.3 14 26 16.7 26 20C26 23.3 23.3 26 20 26"
+                            stroke="url(#grad)" stroke-width="2" stroke-linecap="round" />
+                        <circle cx="20" cy="20" r="3" fill="url(#grad)" />
+                        <defs>
+                            <linearGradient id="grad" x1="0" y1="0" x2="40" y2="40">
+                                <stop offset="0%" stop-color="#6366f1" />
+                                <stop offset="100%" stop-color="#ec4899" />
+                            </linearGradient>
+                        </defs>
+                    </svg></div>
+                <span class="logo-text">NeuroScan<span class="logo-accent">AI</span></span>
+            </div>
+            <nav class="tabs">
+                <button class="tab active" data-tab="classify" onclick="switchTab('classify')">🔬 Classify</button>
+            </nav>
+            <span class="nav-badge" id="model-badge"><span class="badge-dot"></span><span
+                    id="model-status-text">Loading...</span></span>
+        </div>
+    </header>
+
+    <main class="main">
+
+        <!-- ==================== TAB: CLASSIFY ==================== -->
+        <section class="page active" id="page-classify">
+            <div class="hero">
+                <div class="hero-content">
+                    <div class="hero-tag"><span>⚡</span><span>Powered by CNN + LSTM Deep Learning</span></div>
+                    <h1 class="hero-title">Brain Tumor <span class="gradient-text">Detection</span></h1>
+                    <p class="hero-subtitle">Upload an MRI scan for instant AI-powered classification.</p>
+                </div>
+            </div>
+            <div class="section-center">
+                <div class="upload-area" id="upload-area-classify">
+                    <input type="file" id="file-classify" accept="image/*" hidden>
+                    <div class="upload-icon"><svg viewBox="0 0 64 64" fill="none">
+                            <rect x="8" y="12" width="48" height="40" rx="4" stroke="currentColor" stroke-width="2" />
+                            <path d="M8 36L22 24L34 34L42 28L56 38" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <circle cx="24" cy="24" r="4" stroke="currentColor" stroke-width="2" />
+                            <path d="M28 8V16M24 12H32" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                        </svg></div>
+                    <h3>Upload MRI Scan</h3>
+                    <p class="muted">Drag & drop or click · JPG, PNG, TIFF, BMP</p>
+                </div>
+                <div id="classify-preview" class="preview-card" style="display:none;">
+                    <div class="preview-image-wrap"><img id="classify-img">
+                        <div class="scanning-overlay" id="scan-overlay" style="display:none">
+                            <div class="scan-line"></div>
+                            <p class="scan-text">Analyzing...</p>
+                        </div>
+                    </div>
+                    <div class="preview-info">
+                        <p class="file-name" id="classify-fname"></p>
+                        <div class="preview-actions"><button class="btn btn-primary" id="classify-btn"
+                                onclick="classifySingle()"><span>🔬</span> Analyze</button><button class="btn btn-ghost"
+                                onclick="resetClassify()"><span>✕</span> Clear</button></div>
+                    </div>
+                </div>
+                <div id="classify-results" style="display:none;"></div>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h4>CNN Extraction</h4>
+                    <p>ResNet18 extracts rich spatial features via transfer learning.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔗</div>
+                    <h4>LSTM Processing</h4>
+                    <p>Bidirectional LSTM captures spatial dependencies.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h4>Attention</h4>
+                    <p>Self-attention focuses on diagnostic regions.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h4>Instant Results</h4>
+                    <p>Classification with confidence in seconds.</p>
+                </div>
+            </div>
+        </section>
+
+
+
+    </main>
+
+    <footer class="footer">
+        <p>Brain Tumor Detection — CNN + LSTM Hybrid Architecture</p>
+        <p class="footer-note">⚠️ For educational purposes only. Not a substitute for professional medical diagnosis.
+        </p>
+    </footer>
+
+    <script src="/static/app.js"></script>
+</body>
+
+</html>
