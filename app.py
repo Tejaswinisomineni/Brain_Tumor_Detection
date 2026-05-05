@@ -442,6 +442,9 @@ if __name__ == '__main__':
     load_all_models()
     print(f"\nModels ready: {list(models_loaded.keys())}")
     print(f"Device: {DEVICE}")
-    print(f"\n-> Open http://localhost:5000 in your browser")
+    
+    # Use PORT from environment for Render/deployment compatibility
+    port = int(os.environ.get("PORT", 5000))
+    print(f"\n-> Starting server on port {port}")
     print("=" * 60)
-    app.run(host='0.0.0.0', port=5000, debug=False)
+    app.run(host='0.0.0.0', port=port, debug=False)

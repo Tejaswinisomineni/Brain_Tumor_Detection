@@ -1,7 +1,9 @@
-torch
-torchvision
+--find-links https://download.pytorch.org/whl/torch_stable.html
+torch==2.0.1+cpu
+torchvision==0.15.2+cpu
 torchsummary
 flask
+gunicorn
 matplotlib
 seaborn
 scikit-learn
